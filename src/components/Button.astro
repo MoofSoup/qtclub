@@ -1,0 +1,21 @@
+---
+const { text, color = 'bittersweet', size = 'md', arrow = false, href = '#' } = Astro.props;
+
+const colorClasses = {
+    bittersweet: 'bg-bittersweet hover:bg-bittersweet/90',
+    asparagus: 'bg-asparagus hover:bg-asparagus/90',
+    wine: 'bg-wine hover:bg-wine/90'
+};
+
+const sizeClasses = {
+    sm: 'px-3 py-1 text-sm',
+    md: 'px-4 py-2 text-base',
+    lg: 'px-6 py-3 text-lg font-bold',
+    xl: 'px-8 py-4 text-2xl font-bold'
+};
+---
+
+<a href={href} class={`inline-block rounded-lg text-old-lace transition-all ${colorClasses[color]} ${sizeClasses[size]} transform hover:scale-105`}>
+    {text}
+    {arrow && <span class="ml-1">→</span>}
+</a>

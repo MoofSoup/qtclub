@@ -1,0 +1,28 @@
+---
+const { highlightColor = 'asparagus' } = Astro.props;
+---
+
+<div class={`bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-asparagus mt-3 text-raisin-black`}>
+    <div class="p-6 h-full">
+        <h3 class="text-2xl font-serif font-bold mb-4">Testimonials: Save the QRC!</h3>
+
+        <div class="space-y-4">
+            <!-- Example blog posts - you can make these dynamic later -->
+            <div class="group">
+                <a href="/blog/post-1" class="block hover:text-asparagus transition-colors">
+                    <h4 class="font-medium">What the QRC Means to Me</h4>
+                    <p class="text-sm text-gray-600">Sylvia Priel</p>
+                </a>
+            </div>
+
+            <div class="group">
+                <a href="/blog/post-2" class="block hover:text-asparagus transition-colors">
+                    <h4 class="font-medium">Something Or Other</h4>
+                    <p class="text-sm text-gray-600">Nico I guess?</p>
+                </a>
+            </div>
+        </div>
+
+        <a href="/blog" class="inline-block mt-6 text-asparagus hover:text-wine transition-colors"> Read more posts → </a>
+    </div>
+</div>

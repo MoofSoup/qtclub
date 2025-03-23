@@ -1,0 +1,31 @@
+---
+const { author, highlightColor = 'yellow-green', patchSize = 'md', slug } = Astro.props;
+const imagePath = `/images/testimonials/${author.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+
+const colorClasses = {
+    caramel: 'bg-caramel',
+    'french-blue': 'bg-french-blue',
+    'yellow-green': 'bg-yellow-green',
+    citrine: 'bg-citrine'
+};
+
+const sizeClasses = {
+    sm: 'h-40 w-40',
+    md: 'h-48 w-48',
+    lg: 'h-64 w-64'
+};
+---
+
+<a href={`/testimonial/${slug}`} class="block relative patch-wrapper">
+    <!-- Highlight background that moves on hover -->
+    <div class={`patch-highlight ${colorClasses[highlightColor]}`}></div>
+
+    <!-- Main content that stays in place -->
+    <div class={`patch-content ${sizeClasses[patchSize]}`}>
+        <div class="w-full h-full relative">
+            <img src={imagePath} alt={`Photo of ${author}`} class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <h3 class="absolute bottom-3 left-3 text-white font-bold text-lg">{author}</h3>
+        </div>
+    </div>
+</a>

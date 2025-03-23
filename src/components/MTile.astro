@@ -1,0 +1,48 @@
+---
+// MTile.astro
+interface Props {
+    color: string;
+    height: number;
+    width: number;
+    rowStart?: number;
+    colStart?: number;
+}
+
+const { color, height, width, rowStart, colStart } = Astro.props;
+const aspectRatio = `${width}/${height}`;
+
+// Build the style string conditionally
+let gridStyle = '';
+
+if (rowStart) {
+    // If we have a start position, set both start and end
+    gridStyle += `grid-row: ${rowStart} / span ${height};`;
+} else {
+    // Otherwise just use span
+    gridStyle += `grid-row: span ${height};`;
+}
+
+if (colStart) {
+    // If we have a start position, set both start and end
+    gridStyle += `grid-column: ${colStart} / span ${width};`;
+} else {
+    // Otherwise just use span
+    gridStyle += `grid-column: span ${width};`;
+}
+---
+
+<div
+    style={`
+        background-color: ${color}; 
+        position: relative;
+        ${gridStyle}
+    `}
+>
+    <!-- spacer with correct aspect ratio -->
+    <div style={`aspect-ratio: ${aspectRatio}; width: 100%;`}></div>
+
+    <!-- content positioned over spacer -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 10px;">
+        <slot />
+    </div>
+</div>

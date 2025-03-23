@@ -1,0 +1,31 @@
+---
+import Button from './Button.astro';
+
+const {
+    title = 'Pride Week Kickoff',
+    date = 'October 15, 2023',
+    image = '/images/event-placeholder.jpg',
+    highlightColor = 'asparagus' // changed default
+} = Astro.props;
+
+const colorClasses = {
+    bittersweet: ' from-asparagus/20',
+    asparagus: 'from-asparagus/20 to-asparagus/5',
+    wine: 'from-wine/20 to-wine/5'
+};
+---
+
+<div class="bg-white rounded-lg shadow-2xl overflow-hidden pb-3">
+    <div class="relative h-48">
+        <img src={image} alt={title} class="w-full h-full object-cover" />
+        <div class={`absolute inset-0 bg-gradient-to-t ${colorClasses[highlightColor]} mix-blend-multiply`}></div>
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-bold mb-1 text-raisin-black">{title}</h3>
+        <p class="text-wine">{date}</p>
+        <p class="mt-3 text-raisin-black">Join us for an amazing celebration of pride and community!</p>
+        <div class="mt-4">
+            <Button text="Learn More" color={highlightColor} size="sm" />
+        </div>
+    </div>
+</div>

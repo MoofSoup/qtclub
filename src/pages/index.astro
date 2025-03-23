@@ -1,21 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-Meow meow meow meow
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+import SaveTheQRC from '../components/SaveTheQRC.astro';
+import MeetingsCard from '../components/MeetingsCard.astro';
+import EventCard from '../components/EventCard.astro';
+import BlogCard from '../components/BlogCard.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home">
+    <!-- Hero Section with Save The QRC button -->
+    <SaveTheQRC />
+
+    <!-- Main Content Section -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8 text-center text-raisin-black text-6xl">Hello QT Club!</h2>
+
+        <hr class="w-48 mx-auto mb-8 border-raisin-black" />
+
+        <div class="max-w-3xl mx-auto text-raisin-black">
+            <p class="text-lg mb-6 font-sans">
+                The QT Club is a safe and supportive space for queer and transgender students and their allies. We organize events, discussions, and activities
+                to foster community and promote awareness.
+            </p>
+        </div>
+
+        <!-- Info Cards Section -->
+        <div class="mt-12 grid md:grid-cols-2 md:grid-rows-2 gap-8 max-w-4xl mx-auto">
+            <div class="md:col-span-1 row-span-2">
+                <!-- Top left -->
+                <EventCard title="Dolores Park Social" date="October 15, 2023" image="/images/event-placeholder.jpg" highlightColor="bittersweet" />
+            </div>
+
+            <div class="md:col-span-1 md:row-span-2">
+                <!-- Right column -->
+                <MeetingsCard highlightColor="wine" />
+                <BlogCard highlightColor="asparagus" />
+            </div>
+        </div>
+    </section>
 </Layout>
