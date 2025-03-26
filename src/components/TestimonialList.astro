@@ -1,0 +1,27 @@
+---
+// TestimonialsList.astro
+import { getCollection } from 'astro:content';
+import TestimonialCard from './TestimonialCard.astro';
+
+const testimonials = await getCollection('testimonials');
+---
+
+<div class="max-w-2xl mx-auto text-4xl text-wine font-serif mt-20">
+    <h1>Testimonials:</h1>
+    <hr />
+</div>
+<div class="max-w-2xl mx-auto py-8 px-4">
+    <div class="space-y-6">
+        {testimonials.map((testimonial) => <TestimonialCard class="link" author={testimonial.data.author} content={testimonial} />)}
+    </div>
+</div>
+
+<style>
+    .link:hover {
+        color: var(--color-ocean-beach);
+        font-weight: 500;
+        border: 1px solid var(--color-ocean-beach);
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+</style>

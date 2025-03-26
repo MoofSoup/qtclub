@@ -1,0 +1,29 @@
+---
+// TestimonialCard.astro
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+    author: string;
+    content: CollectionEntry<'testimonials'>;
+}
+
+const { author, content } = Astro.props;
+console.log('Content:', content);
+const targetUrl = `/savetheqrc/${author.toLowerCase()}-testimonial`;
+---
+
+<div class="link">
+    <a href={targetUrl} class="block no-underline">
+        <h3 class="text-2xl font-serif text-wine mb-4">{author}</h3>
+        <hr /></a
+    >
+</div>
+<style>
+    .link:hover {
+        color: var(--color-ocean-beach);
+        font-weight: 500;
+        border: 1px solid var(--color-ocean-beach);
+        border-radius: 4px;
+        transition: all 0.1s ease;
+    }
+</style>

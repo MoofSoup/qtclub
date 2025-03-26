@@ -6,9 +6,9 @@ const testimonials = defineCollection({
         author: z.string(),
         date: z.date().optional(),
         title: z.string().optional(),
-        imagePath: z.string(),
+        imagePath: z.string().optional(),
         alt: z.string().optional(),
-        is_featured: z.boolean(),
+        is_featured: z.boolean().optional(),
     }),
 });
 
