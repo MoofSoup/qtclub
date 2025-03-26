@@ -1,19 +1,14 @@
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const featuredTestimonials = defineCollection({
-    schema: z.object({
-        author: z.string(),
-        date: z.date().optional(),
-        title: z.string().optional(),
-    }),
-});
-
 const testimonials = defineCollection({
     schema: z.object({
         author: z.string(),
         date: z.date().optional(),
         title: z.string().optional(),
+        imagePath: z.string(),
+        alt: z.string().optional(),
+        is_featured: z.boolean(),
     }),
 });
 
@@ -22,11 +17,12 @@ const qrcPhotos = defineCollection({
         name: z.string(),
         width: z.number(),
         height: z.number(),
+        alt: z.string().optional(),
+        imagePath: z.string(),
     }),
 });
 
 export const collections = {
-    'featured_testimonials': featuredTestimonials,
     'testimonials': testimonials,
     'qrc_photos': qrcPhotos,
 };

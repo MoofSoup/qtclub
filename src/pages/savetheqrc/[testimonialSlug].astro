@@ -1,0 +1,21 @@
+---
+import TestimonialPage from '../../layouts/TestimonialPage.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const testimonials = await getCollection('testimonials');
+    return testimonials.map((testimonial) => ({
+        params: {
+            testimonialSlug: `${testimonial.data.author.toLowerCase()}-testimonial`
+        },
+        props: { testimonial }
+    }));
+}
+
+const { testimonial } = Astro.props;
+const { Content } = await testimonial.render();
+---
+
+<TestimonialPage testimonial={testimonial}>
+    <Content />
+</TestimonialPage>

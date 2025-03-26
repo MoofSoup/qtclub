@@ -1,5 +1,7 @@
 ---
 author: "Sylvia"
+is_featured: true
+imagePath: "../assets/test.jpg"
 ---
 The QRC space has become my home base at City. Last semester was my first semester at this school, and back before I had any friends I found this space. Now it is where I spend most of my time between classes. The qrc is this rly fun mix of a study and hangout space. One day I am roping other students into the game I am working on, then the next I am flipping through old magazines just admiring the design. The music and the art in the space is as diverse as the people.
 
